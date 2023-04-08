@@ -6,13 +6,12 @@
 //
 // Execute `rustlings hint vecs2` or use the `hint` watch subcommand for a hint.
 
-// I AM NOT DONE
-
 fn vec_loop(mut v: Vec<i32>) -> Vec<i32> {
     for element in v.iter_mut() {
         // TODO: Fill this up so that each element in the Vec `v` is
         // multiplied by 2.
-        ???
+        *element *= 2;
+        // dereference to access and then assign
     }
 
     // At this point, `v` should be equal to [4, 8, 12, 16, 20].
@@ -23,9 +22,17 @@ fn vec_map(v: &Vec<i32>) -> Vec<i32> {
     v.iter().map(|element| {
         // TODO: Do the same thing as above - but instead of mutating the
         // Vec, you can just return the new number!
-        ???
+        element*2
     }).collect()
 }
+
+// From documentation:
+
+// map() is conceptually similar to a for loop. 
+// However, as map() is lazy, it is best used when you’re already working with other iterators. 
+// If you’re doing some sort of looping for a side effect, it’s considered more idiomatic to use for than map().
+// This will not execute:
+// (0..3).map(|x| println!("{x}"));
 
 #[cfg(test)]
 mod tests {
